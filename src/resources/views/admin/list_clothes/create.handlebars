@@ -1,0 +1,87 @@
+<div class="container">
+  <div style="margin-top:5%"></div>
+  <div class="mt-4">
+    <center><h3>Đăng Bài Bán</h3></center>
+
+    <form method="post" action="/admin/listClothes/create/save">
+
+      <div class="form-group">
+        <label for="type_clothes">type_clothes</label>
+        <input type="text" class="form-control" id="type_clothes" name="type_clothes">
+      </div>
+
+      
+      <div class="form-group">
+        <label for="type_sex">type_sex</label>
+        <input type="text" class="form-control" id="type_sex" name="type_sex">
+      </div>
+
+      <div class="form-group">
+        <label for="image">image</label>
+        <input type="text" class="form-control" id="image" name="image">
+      </div>
+
+      <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" class="form-control" id="title" name="title">
+      </div>
+
+      <div class="form-group">
+        <label for="color">color</label>
+        <input type="text" class="form-control" id="color" name="color">
+      </div>
+
+      <div class="form-group">
+        <label for="size">size</label>
+        <input type="text" class="form-control" id="size" name="size">
+      </div>
+
+      <div class="form-group">
+        <label for="price">price</label>
+        <input type="text" class="form-control" id="price" name="price">
+      </div>
+
+      <div class="form-group">
+        <label for="discount">discount</label>
+        <input type="text" class="form-control" id="discount" name="discount">
+      </div>
+      
+      <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" id="description" name="description">
+      </div>
+
+      <div class="form-group">
+        <label for="rate">rate</label>
+        <input type="text" class="form-control" id="rate" name="rate">
+      </div>
+
+      <div class="form-group">
+        <label for="sale">sale</label>
+        <input type="text" class="form-control" id="sale" name="sale">
+      </div>
+
+      <div class="form-group">
+        <label for="slug">slug</label>
+        <input type="text" class="form-control" id="slug" name="slug">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Thêm bài</button>
+    </form>
+
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var dropSize = document.querySelectorAll('.drop-size-item')
+    var btnSelectSize = document.querySelector('.btn-select-size')
+    dropSize.forEach(btn => {
+      btn.onclick = function () {
+        var size = this.getAttribute("data-value")
+        btnSelectSize.innerText = ""
+        btnSelectSize.innerText = size
+        btnSelectSize.value = size
+      }
+    })
+  })
+</script>

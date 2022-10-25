@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2" style="border-right: 1px solid black;margin-top:5%">
+
+        <div class="menuManager">
+          {{>admin/menufuntions}}
+        </div>
+
+    </div>  
+
+    <div class="col-10 mt-4">
+      <div class="row">
+        <div class="content">
+          <div style="margin-top:5%"></div>
+           <h2 style="color:rgb(100, 0, 12) ;"> <center>Danh Sach Type Clothes</center> </h2> 
+          <a class="btn" style="margin-left:90%;background-color: rgb(0, 0, 255);width:120px;color:white !important" href="/admin/typeClothes/create">
+            <span class="fas fa-plus-circle"></span> Thêm mới
+          </a>
+            
+            <hr>
+        </div>
+      </div>
+
+            <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">type-clothe</th>
+                    <th scope="col">type-sex</th>
+                    <th scope="col">date</th>
+                    <th scope="col">thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {{#each clothes}}
+                <tr>
+                    <th scope="row">{{ @index }}</th>
+                    <td>{{this.type_clothe}}</td>
+                    <td>{{this.type_sex}}</td>
+                    <td>{{this.createAt}}</td>
+                    <td>
+                        <a href="/admin/typeClothes/{{this._id}}/edit">Sửa</a>  
+                    <a href="" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#delete-clothe-modal">Xóa</a>
+                    </td>
+                </tr>
+                    {{/each}}
+            </tbody>
+            </table>
+
+      
+    </div>
+  </div>
+</div>
+{{!-- from alert --}}
+
+                      <div class="modal fade" id="delete-clothe-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Xóa sản phẩm này</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Bạn chắc chắn muốn xóa ?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" id="btn-delete-clothe" onclick="myfunction()">Xóa bỏ</button>
+                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Hủy</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <form name="delete-clothe-form" method="POST"></form>
+
+                    <script>
+                      document.addEventListener('DOMContentLoaded', function () {
+                        var clotheId;
+                        var deleteForm = document.forms['delete-clothe-form'];
+                        var btnDeleteClothe = document.getElementById('btn-delete-clothe');
+
+                        $('#delete-clothe-modal').on('show.bs.modal', function (event) {
+                          var button = $(event.relatedTarget);
+                          clotheId = button.data('id');
+                        });
+
+                        btnDeleteClothe.onclick = function () {
+                          deleteForm.action = '/admin/typeClothes/' + clotheId + '?_method=DELETE';
+                          deleteForm.submit();
+                        }
+                      })
+                    </script>

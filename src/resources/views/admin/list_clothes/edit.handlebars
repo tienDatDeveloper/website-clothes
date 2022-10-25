@@ -1,0 +1,56 @@
+<div class="container">
+  <div style="margin-top:5%"></div>
+  <div class="mt-4">
+    <center><h3>Sửa Bài Bán</h3></center>
+
+    <form method="post" action="/admin/listClothes/{{clothes._id}}?_method=PUT">
+      <div class="form-group">
+        <label for="image">image</label>
+        <input type="text" class="form-control" value ="{{clothes.image}}" id="image" name="image">
+      </div>
+
+      <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" class="form-control" value ="{{clothes.title}}" id="title" name="title">
+      </div>
+
+      <div class="form-group">
+        <label for="color">color</label>
+        <input type="text" class="form-control" value ="{{clothes.color}}" id="color" name="color">
+      </div>
+
+      <div class="form-group">
+        <label for="size">size</label>
+        <input type="text" class="form-control" value ="{{clothes.size}}" id="size" name="size">
+      </div>
+
+      <div class="form-group">
+        <label for="price">price</label>
+        <input type="text" class="form-control" value ="{{clothes.price}}" id="price" name="price">
+      </div>
+      
+      <div class="form-group">
+        <label for="description">description</label>
+        <textarea  class="form-control" id="description" name="description"> {{clothes.description}}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="rate">rate</label>
+        <input type="text" class="form-control" value ="{{clothes.rate}}" id="rate" name="rate">
+      </div>
+
+      <div class="form-group">
+        <label for="sale">sale</label>
+        <input type="text" class="form-control" value ="{{clothes.sale}}" id="sale" name="sale">
+      </div>
+
+      <div class="form-group">
+        <label for="slug">slug</label>
+        <input type="text" class="form-control" value ="{{clothes.slug}}" id="slug" name="slug">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Sửa bài</button>
+    </form>
+
+  </div>
+</div>

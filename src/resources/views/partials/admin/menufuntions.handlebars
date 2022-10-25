@@ -1,0 +1,49 @@
+<div class="menuList">
+    <center>
+        <h3>Manager</h3>
+    </center>
+    <a href="/admin/typeClothes?page=1">
+        <button class="accordion">types Clothes</button>
+    </a>
+
+    <button class="accordion">list Clothes  <i class="fas fa-bars"></i></button>
+    <div class="panel">
+        <div class="box-menu">
+            <a href="/admin/Clothes/Nam?page=1"><i class="fas fa-circle"></i> Nam</a>
+            </br>
+            <a href="/admin/Clothes/Nu?page=1"><i class="fas fa-circle"></i> Nu</a>
+            </br>
+            <a href="/admin/listClothes?page=1"><i class="fas fa-circle"></i> list</a>
+        </div>
+    </div>
+
+    </br>
+
+    <a href="/admin/adv?page=1">
+        <button class="accordion">Adv Clothes</button>
+    </a>
+    <a href="/admin/cart?page=1">
+        <button class="accordion">Cart Clothes</button>
+    </a>
+</div>
+
+{{!-- <div class="mt-3">
+    <h3>administration user</h3>
+
+</div> --}}
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>

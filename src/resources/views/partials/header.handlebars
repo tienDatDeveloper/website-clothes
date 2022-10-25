@@ -1,0 +1,63 @@
+<style>
+  .hinh {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: auto;
+  }
+
+  .khoi .card {
+    border: none !important;
+  }
+
+  .navbar.nentrang {
+    background: #fff;
+  }
+
+  .nav-link.chu {
+
+    color: rgb(110, 110, 110) !important;
+  }
+</style>
+
+<nav class="navbar navbar-expand navbar-light fixed-top menutop">
+  <a class="navbar-brand" href="/">Triple L</a>
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active  phantu">
+        <a class="nav-link tren" href="/Clothes?page=1">Sản Phẩm <span class="sr-only">(current)</span></a>
+        <div class="nd">
+          <a href="/Clothes/Nam?page=1">Thời Trang Nam</a>
+          <a href="/Clothes/Nu?page=1">Thời Trang Nữ</a>
+          <a href="/phukien?page=1">Phụ Kiện</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Quản lí</a>
+      </li>
+    </ul>
+      <form action="" style="margin-left:auto">
+        <input class="form-control" type="text" placeholder="Search">
+      </form>
+        <img src="" alt="" style="border-radius: 50% ;">
+          <a href="/login" style="margin-left:auto" value="">{{account.UserName}} Login</a>
+  </div>
+</nav>
+
+
+<script>
+  $(window).scroll(function () {
+    if ($('html,body').scrollTop() > 150) {
+      $('.navbar').addClass('nentrang');//nen menu doi trang
+      $('.nav-link').addClass('chu')
+    }
+    else {
+      $('.navbar').removeClass('nentrang');
+      $('.nav-link').removeClass('chu');
+    }
+  })
+</script>

@@ -1,0 +1,108 @@
+
+<div id="slide"></div>
+<div style="margin-top:4%"></div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://bridgewatercentre.ie/app/uploads/2017/02/11188-BW-Cover-WEB-Banner-1900x700-19.02.18.jpg"
+        class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://eldmedia.s3.us-east-2.amazonaws.com/wp-content/uploads/2018/01/top-image-1919x700.png"
+        class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.familybritches.com/wp-content/uploads/2014/11/made-to-measure-header.jpg"
+        class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<center>
+  <div class="mt-4 mb-2">
+    <h4>SẢN PHẨM BEST-SELLER</h4>
+    <hr style="width:50%">
+    <div class="container">
+      <div class="row">
+        <div class="tour ">
+      {{#each clothes}}
+          <div class="khoitin">
+            <img src="{{this.image}}" class="img-fluid" alt="" class="hinh">
+            <div class="diadiem this-sale" value = "{{this.sale}}">Sale {{this.sale}}%</div>
+            <div class="nen">
+              <label for="">Mẫu sản phẩm sale của cửa hàng.</label>
+              <a href="/{{this.slug}}" class="btn-mua mt-4">Mua</a>
+            </div>
+          </div>
+    {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</center>
+
+<center>
+  <div class="mt-4 mb-2">
+    <h4>DANH MỤC THỜI TRANG</h4>
+    <hr style="width:50%">
+      <div class="container mt-5 pt-5">
+        <div class="row">
+          <div class="col-sm-7 pt-5">
+            <h2 class="mt-5">Thời Trang Nam
+            </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, aliquid soluta. Incidunt illo, aspernatur architecto placeat adipisci quaerat delectus consequuntur earum odit repellendus corrupti cupiditate. Dolor et quia quam alias.</p>
+          </div>
+          <div class="col-sm-5">
+            <img src="https://image-us.24h.com.vn/upload/4-2019/images/2019-11-21/1574272113-228-nam-gioi-cu-mac-so-mi-trang-la-auto-dep-1-1574244279-width500height500.jpg" alt="" width="100%">
+          </div>
+        </div>
+        <hr class="mt-5 mb-5">
+      </div>
+      <div class="container mt-5 pt-5">
+        <div class="row">
+          <!-- order-lg-2 để xếp vị trí -->
+          <div class="col-sm-7 pt-5 order-lg-2">
+            <h2 class="mt-5">Thời Trang Nữ
+            </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, aliquid soluta. Incidunt illo, aspernatur architecto placeat adipisci quaerat delectus consequuntur earum odit repellendus corrupti cupiditate. Dolor et quia quam alias.</p>
+          </div>
+          <div class="col-sm-5 ">
+            <img src="https://i.pinimg.com/564x/b0/72/5b/b0725b41da126095b8cd7a53c1466ccc--chic-street-styles-street-chic.jpg" alt="" width="100%">
+          </div>
+        </div>
+        <hr class="mt-5 mb-5">
+      </div>
+      <a href="#slide">Come Back</a>
+       {{!-- <div class="dienthoai">
+        <div class="vien"></div>
+        <div class="nen"></div>
+        <i class='fas fa-phone icon' style='font-size:48px;color:rgb(249, 249, 249)'></i>
+        <div class="sdt">
+            <p>Call Us</p>
+            <p>02111102</p>
+        </div>
+    </div> --}}
+</center>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function(){
+        var block = document.querySelector('.khoitin');
+        var this_sale = document.querySelector('.this-sale');
+    }) 
+</script>
