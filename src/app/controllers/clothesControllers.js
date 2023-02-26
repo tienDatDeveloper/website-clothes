@@ -6,25 +6,27 @@ const { parse } = require('dotenv');
 const PAGE_SIZE = 8;
 class clothesControllers {
   show(req, res, next) {
-    var page = req.query.page;
-    if (page) {
-      page = parseInt(page)
-      var start = (page - 1) * PAGE_SIZE;
-      Clothe.find({})
-        .skip(start)
-        .limit(PAGE_SIZE)
-        .then(clothes => {
-          res.render('user/clothes', { clothes: multipleMongooseToObject(clothes) });
-        })
-        .catch(next)
-    }
-    else {
-      Clothe.find({})
-        .then(clothes => {
-          res.render('user/clothes', { clothes: multipleMongooseToObject(clothes) });
-        })
-        .catch(next)
-    }
+   
+      var page = req.query.page;
+      if (page) {
+        page = parseInt(page)
+        var start = (page - 1) * PAGE_SIZE;
+        Clothe.find({})
+          .skip(start)
+          .limit(PAGE_SIZE)
+          .then(clothes => {
+            res.render('user/clothes', { clothes: multipleMongooseToObject(clothes) });
+          })
+          .catch(next)
+      }
+      else {
+        Clothe.find({})
+          .then(clothes => {
+            res.render('user/clothes', { clothes: multipleMongooseToObject(clothes) });
+          })
+          .catch(next)
+      }
+      // res.send(req.session.account);
   }
 
   phukien(req, res, next) {

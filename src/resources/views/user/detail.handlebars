@@ -11,29 +11,46 @@
                                 }
                             </style>
                             <div class="carousel-item active">
-                                
+
                                 <img src="{{clothes.image}}" class="img-fluid" class="d-block w-100" alt="...">
                                 <div class="sale">{{this.sale}}</div>
                             </div>
                         </div>
                     </div>
                     <hr>
-                    <h4>Mô tả: </h4>{{clothes.description}}
+                        slickAdd
                 </div>
                 <div class="col-6">
                     <center>
                         <h3>Thông tin Sản phẩm</h3>
                         <hr style="width:50%; margin-bottom:5%">
                     </center>
-                    <h2>
-                        {{clothes.title}}
-                        <div>Màu: {{clothes.color}}</div>
-                        <div>Size: M Xl XXl</div>
-                        <div class="price" >Giá: {{clothes.price}}</div>                      
-                        <div class="discount" ></div>                        
-                        <button class="add-cart">Thêm vào giỏ hàng</button>
-                        <button class="buy-detail">Mua</button>
-                    </h2>
+                    <div class="row">
+                        <div class="col-6">
+                            <h5>
+                                {{clothes.title}}
+                                <div>Màu: {{clothes.color}}</div>
+                                <div>Size: M Xl XXl</div>
+                                <div class="price">Giá Gốc: {{clothes.price}} VND</div>
+                                <div class="discount"></div>
+                                <p style="margin-top:200px">
+                                <button class="buy-detail">Mua</button>
+                                <button class="add-cart">Thêm <i class="fas fa-shopping-cart"></i></button>
+                                </p>
+                            </h5>
+                        </div>
+                        <div class="col-1">
+                            <hr style="height:100%;width:1px">
+                        </div>
+                        <div class="col-5"> 
+                            <h5>
+                            <center>
+                                Mô Tả 
+                            </center>
+                            {{clothes.description}}
+                            </h5>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,7 +69,7 @@
         else {
             var s = {{clothes.price}}-{{clothes.price}}*({{clothes.sale}}/100);
             $('.price').addClass('price-del')
-            discount.innerText= "Giá gốc: " + s +".000";
+            discount.innerText= "Giá khuyến mãi: " + s +".000 VND";
         }
     }) 
 </script>

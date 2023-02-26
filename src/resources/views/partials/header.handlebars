@@ -40,12 +40,27 @@
         <a class="nav-link" href="/admin">Quản lí</a>
       </li>
     </ul>
-      <form action="" style="margin-left:auto">
-        <input class="form-control" type="text" placeholder="Search">
-      </form>
-        <img src="" alt="" style="border-radius: 50% ;">
-          <a href="/login" style="margin-left:auto" value="">{{account.UserName}} Login</a>
+    <form action="" style="margin-left:auto">
+      <input class="form-control" type="text" placeholder="Search">
+    </form>
+    {{#if user}}
+    <div class="logo">
+      <a  href="/">
+        <img src="{{user.Avatar}}" >
+      </a>
+    </div>
+    <div class="nav-item active  phantu-login">
+      <div class="tren-login" style="margin-left:auto; padding-bottom:10px" value="">{{user.UserName}}</div>
+      <div class="nd-login">
+        <a href="/user/infor">Thông tin cá nhân</a>
+        <a href="/user/changeAccount">Cài đặt tài khoản</a>
+        <a href="/logout">Logout =></a>
+      </div>
+    </div>
+    {{else}}
+    <a href="/login" style="margin-left:auto" value="">Login</a>
   </div>
+  {{/if}}
 </nav>
 
 

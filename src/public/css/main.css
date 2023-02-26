@@ -2,10 +2,6 @@
 body{
     background: #f7f7f7; 
 }
-.logo a img {
-    display: block;
-    height: 75px;
-}
 .cart-page{
     margin-left: 20px;
     padding-right: 20px;
@@ -13,6 +9,12 @@ body{
 .body-page{
     padding-left: 30px;
     padding-right: 30px;
+}
+.logo a img {
+    height: 50px;
+    padding-right: 10px; 
+    padding-left: 200px;
+    border-radius: 50%;
 }
 
 
@@ -449,4 +451,64 @@ a {
     }
  .box-menu{
     padding: 0 18px;
+}
+.main {
+    font-family:Arial;
+    width:500px;
+    display:block;
+    margin:0 auto;
+  }
+
+
+
+
+
+.phantu-login:hover{
+    background-color: #d1d0d0d3;
+}
+
+
+.phantu-login a.tren{
+    color: white;
+    font-size: 17px;
+    display: block;
+    text-transform: none;
+    text-decoration: none;
+    text-align: center;
+}
+.phantu-login .nd-login{
+    width: 200px;
+    margin-right: 12%;
+    background-color:rgb(230, 230, 230);
+    position: absolute;
+    top: 41px;
+    visibility: hidden;
+}
+.nd-login a{
+    display: block;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+    padding: 8px;
+    border-bottom: 1px solid #000000;
+}
+.nd-login a:hover{
+    background-color:rgb(165, 165, 165);
+    color: rgb(255, 255, 255) !important;
+}
+.phantu-login:hover .nd-login{
+    visibility: visible;
+}
+
+.vehicleVay-class-display{
+    display: none;
+}
+
+.btn-search-form{
+    margin-bottom:20px;
+    margin-left:7%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-color:  rgb(101, 88, 88);
+    border-radius: 5px;
 }

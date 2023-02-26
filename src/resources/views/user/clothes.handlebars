@@ -9,24 +9,25 @@
       <div class="col-3">
         <div class="box-select"
           style="box-shadow:rgba(130, 130, 130, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;">
-          <div class="select-font" style="margin-left: 20px;padding-top:10px">
-
+          <div class="select-font" style="margin-left: 20px;padding-top:10px;padding-bottom:10px">
             <h3 class="mt-3">Set Mẫu </h3>
-            <input type="checkbox" class="checkboxNam" id="vehicle1" name="vehicle1" value="Bike">
+            <input type="checkbox" class="checkboxNam" name="vehicle1" value="Bike">
             <label for="vehicle1">Thời Trang Nam</label><br>
-            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+            <input type="checkbox" name="vehicle2" class="checkboxNu" value="Car">
             <label for="vehicle2"> Thời Trang Nữ</label><br>
             <br>
             <hr style="width:70%">
             <h3>Bộ Lọc Tìm Kiếm</h3>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-            <label for="vehicle1">Áo</label><br>
-            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-            <label for="vehicle2"> Quần</label><br>
-            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-            <label for="vehicle3"> Giày</label><br>
-            <input type="checkbox" id="vehicle4" name="vehicle4" value="Boat">
-            <label for="vehicle4"> Phụ Kiện</label><br><br>
+            <input type="checkbox" class="vehicleAo-class" name="vehicle1" value="Bike">
+            <label for="vehicleAo">Áo</label><br>
+            <input type="checkbox" class="vehicleQuan-class" name="vehicle2" value="Car">
+            <label for="vehicleQuan"> Quần</label><br>
+            <input type="checkbox" class="vehicleGiay-class" name="vehicle3" value="Boat">
+            <label for="vehicleGiay"> Giày</label><br>
+            <input type="checkbox" class="vehiclePhuKien-class" name="vehicle4" value="Boat">
+            <label for="vehiclePhuKien"> Phụ Kiện</label><br>
+            <input type="checkbox" class="vehicleVay-class-1 vehicleVay-class-display" name="vehicle4" value="Boat">
+            <label for="vehicleVay" class="vehicleVay-class-2 vehicleVay-class-display"> Váy</label><br>
           </div>
         </div>
 
@@ -42,8 +43,11 @@
                   <h6 class="card-title">{{this.title}}</h6>
               </a>
               <p class="card-text">{{this.price}} VND</p>
-              <a href="/{{this.slug}}" class="btn btn-mua" style="background-color: rgb(199, 59, 57); color:white !important">Buy</a>
-              <a href="/cart/{{this.slug}}" class="btn btn-mua" style="background-color: rgb(162, 160, 160); color:white !important">Add Cart <i class="fa fa-shopping-cart"></i></a>
+              <a href="/{{this.slug}}" class="btn btn-mua"
+                style="background-color: rgb(199, 59, 57); color:white !important">Buy</a>
+              <a href="/cart/{{this.slug}}" class="btn btn-mua"
+                style="background-color: rgb(162, 160, 160); color:white !important">Add Cart <i
+                  class="fa fa-shopping-cart"></i></a>
             </div>
           </div>
         </div>
@@ -60,7 +64,7 @@
               <a href="?page=1" class="pagination-item_link pagination-item--active" onclick="loadPage(1)">1</a>
             </li>
             <li class="paination-item">
-              <a href="?page=2" class="pagination-item_link" onclick= "loadPage(2)" >2</a>
+              <a href="?page=2" class="pagination-item_link" onclick="loadPage(2)">2</a>
             </li>
             <li class="paination-item">
               <a href="?page=3" class="pagination-item_link">3</a>
@@ -86,35 +90,111 @@
 </div>
 </div>
 
+
 <script>
-  function loadPage(page){
-    $.ajax({
-      url:'/Clothes?page='+page,
-      type: 'GET'
-    })
-    .then(data=>{
-      
-    })
-    .catch(err=>{
-      res.status(400);
-      alert('qweqweqwe')
-    })
-  }
-  document.addEventListener("DOMContentLoaded", function () {
-    var checkboxNam = document.getElementById('vehicle1');
-    var checkboxNu = document.getElementById('vehicle2');
-
-    checkboxNam.onclick = function () {
-      if (checkboxNam.checked) {
-
-        window.location.href = "http://localhost:4000/Clothes/Nam";
-
-      }
+  const btnseach = document.querySelector(".btn-search-form");
+  const checkboxNam = document.querySelector(".checkboxNam");
+  const checkboxNu = document.querySelector(".checkboxNu");
+  const checkAo = document.querySelector(".vehicleAo-class");
+  const checkQuan = document.querySelector(".vehicleQuan-class");
+  const checkGiay = document.querySelector(".vehicleGiay-class");
+  const checkPhuKien = document.querySelector(".vehiclePhuKien-class");
+  const checkVay1 = document.querySelector(".vehicleVay-class-1");
+  const checkVay2 = document.querySelector(".vehicleVay-class-2");
+  var checkTTnu = false;
+  var checkTTnam = false;
+  var checkTTAo = false;
+  var checkTTQuan = false;
+  var checkTTGiay = false;
+  var checkTTPhuKien = false;
+  var checkTTVay1 = false;
+  //checker input search clothing Nam
+  checkboxNam.addEventListener('click', function (e) {
+    if(checkTTnu){
+      alert("Bạn không thể chọn 2 thời trang cùng lúc");
+      return 0;
     }
-    checkboxNu.onclick = function () {
-      if (checkboxNu.checked) {
-        window.location.href = "http://localhost:4000/Clothes/Nu";
-      }
+    if (checkboxNam.checked == true) {
+      checkTTnam = true;
     }
-})
+    else {
+      checkTTnam = false;
+    }
+    console.log(checkTTnam);
+    e.stopPropagation();
+  })
+  //checker input search clothing Nu
+  checkboxNu.addEventListener('click', function (e) {
+    if(checkTTnam){
+      alert("Bạn không thể chọn 2 thời trang cùng lúc");
+      return 0;
+    }
+    checkVay1.classList.toggle("vehicleVay-class-display");
+    checkVay2.classList.toggle("vehicleVay-class-display");
+    if (checkboxNu.checked == true) {
+      checkTTnu = true;
+    }
+    else {
+      checkTTnu = false;
+    }
+    console.log(checkTTnu);
+    e.stopPropagation();
+  })
+  //checker input search clothing Ao
+  checkAo.addEventListener('click', function (e) {
+    if (checkAo.checked == true) {
+      checkTTAo = true;
+    }
+    else {
+      checkTTAo = false;
+    }
+    console.log(checkTTAo);
+    e.stopPropagation();
+  })
+  //checker input search clothing Quan
+  checkQuan.addEventListener('click', function (e) {
+    if (checkQuan.checked == true) {
+      checkTTQuan = true;
+    }
+    else {
+      checkTTQuan = false;
+    }
+    console.log(checkTTQuan);
+    e.stopPropagation();
+  })
+  //checker input search clothing Giay
+  checkGiay.addEventListener('click', function (e) {
+    if (checkGiay.checked == true) {
+      checkTTGiay = true;
+    }
+    else {
+      checkTTGiay = false;
+    }
+    console.log(checkTTGiay);
+    e.stopPropagation();
+  })
+  //checker input search clothing PhuKien
+  checkPhuKien.addEventListener('click', function (e) {
+    if (checkPhuKien.checked == true) {
+      checkTTPhuKien = true;
+    }
+    else {
+      checkTTPhuKien = false;
+    }
+    console.log(checkTTPhuKien);
+    e.stopPropagation();
+  })
+  //checker input search clothing PhuKien
+  checkVay1.addEventListener('click', function (e) {
+    if (checkVay1.checked == true) {
+      checkTTVay1 = true;
+    }
+    else {
+      checkTTVay1 = false;
+    }
+    console.log(checkTTVay1);
+    e.stopPropagation();
+  })
+  btnseach.addEventListener('click',(e)=>{
+  })
 </script>

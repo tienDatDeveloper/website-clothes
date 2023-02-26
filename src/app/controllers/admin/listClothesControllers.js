@@ -51,7 +51,7 @@ class listClothesControllers {
 
   update(req, res, next ){
     Clothe.updateOne({_id: req.params.id},req.body)
-    .then(()=>res.redirect('admin/listClothes/show?page=1'))
+    .then(()=>res.redirect('admin/listClothes/show?     page=1'))
     .catch(next);
   }
 
